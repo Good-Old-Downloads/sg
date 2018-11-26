@@ -1,0 +1,49 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends 'main.twig' %}
+
+{% set currentPage = 'faq' %}
+
+{% block title %}{{'FAQ'|trans}}{% endblock title %}
+
+{% block content %}
+<div class="container faq nomargin">
+  <h1>{{'FAQ'|trans}}</h1>
+  <h3>{{'Why make another "scene games" site when there are countless others?'|trans}}</h3>
+  <p>{{'All the other sites are littered with ads and pop-ups. They are also slow at uploading and profit from scene releases!'|trans}}</p>
+
+  <h3>{{'There is an incorrect game associated with a release. Why does this happen?'|trans}}</h3>
+  <p>{{'Sometimes a release gets matched with the wrong game. We usually notice this and fix it.'|trans}}</p>
+
+  <h3>{{ 'What torrent client should I use?'|trans }}</h3>
+  <p>{{ 'Torrent users should be using %deluge% or %qbittorent% (anything besides μTorrent please!).'|trans|nl2br|replace({'%deluge%': '<a href="http://deluge-torrent.org/" target="_blank">Deluge</a>', '%qbittorent%': '<a href="https://www.qbittorrent.org/" target="_blank">qBittorent</a>'})|raw }}</p>
+
+  <h3>{{'What if the direct links go down or there are no seeders for the release I want?'|trans}}</h3>
+  <p>{{'Click the "vote for a re-upload" button and the game will be automatically re-uploaded. You can check the progress in the Queue. We DO NOT re-seed torrents, so please consider seeding back what you leech (maybe get a seedbox and help out).'|trans}}</p>
+
+  <h3>{{'How do I mount an ISO and install the game I downloaded and how do I crack it?!'|trans}}</h3>
+  <p>{{"You must be a virgin at this ;) There are countless tutorials if you do a Google search. Basically, if you know how to copy and paste things you're already a pro."|trans}}</p>
+
+  <h3>{{'Help the game I downloaded doesn\'t work!'|trans}}</h3>
+  <p>{{"First, please be sure you are cracking the game after you install it (and that your anti-virus isn't deleting the crack!). 
+  Second, some releases may not work as the scene does make mistakes. If so, a \"PROPER\" release will be usually be posted."|trans}}</p>
+
+  <h3>{{'I love this site! How can I donate?'|trans}}</h3>
+  <p>{{'We\'re not going to profit off of scene releases. You can donate to us by seeding the torrents you download or by telling others about this site (on forums, Reddit, your friends, etc).'|trans}}</p>
+</div>
+{% endblock content %}

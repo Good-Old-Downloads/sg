@@ -1,0 +1,135 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% macro input(games, options = { 'elastic': false, 'isGroup': false, 'term': false }) %}
+  {% set groupPageGroupName = true %} {# If not in group page: any string == true #}
+  {% if options.isGroup %}
+  {#  OK shitty workaround that you'll probably forget! 
+      When querying ElasticSearch you can't filter out nested values (i think) 
+      So instead of modifying the search results array which is slower we're just gonna not show anything that doesn't have the group we want
+
+      CTRL+F "if release.group == groupPageGroupName"
+      #}
+    {% set groupPageGroupName = options.term %}
+  {% endif %}
+  {% import "release_links.twig" as linksbox %}
+  {% if options.elastic %}
+    {% set games = games.hits %}
+  {% endif %}
+  {% for game in games %}
+    {% if options.elastic %}
+      {% set game_id = game._id %}
+      {% set game = game._source %}
+    {% else %}
+      {% set game_id = game.id %}
+    {% endif %}
+    {% for release in game.releases if release.group == groupPageGroupName %}
+      {# Mobile modal for release details #}
+      <input class="modal-state" id="modal-{{ game.slug }}-{{ loop.index }}" type="checkbox">
+      <div class="modal mobile">
+        <label class="modal__bg" for="modal-{{ game.slug }}-{{ loop.index }}"></label>
+        <div class="modal__inner">
+          <label class="modal__close" for="modal-{{ game.slug }}-{{ loop.index }}"></label>
+          <h4 class="rls-name">{{ release.name }}</h4>
+          <div class="modal-download-buttons">
+            <button class="btn" data-nfomobile="{{ release.name }}">NFO</button>
+            <label class="btn links-modal-trigger modal-calc-height" data-id="{{ release.id }}" for="links-{{ game.slug }}-{{ loop.index }}">{{'Direct Links'|trans}}</label>
+            {% if release.magnet %}
+              <a href="{{ release.magnet }}" class="btn">{{'Magnet'|trans}}</a>
+            {% endif %}
+            {% if release.torrent %}
+              <a href="{{ release.torrent }}" class="btn">{{'Torrent'|trans}}</a>
+            {% endif %}
+          </div>
+          <div class="nfo-container hidden">
+            <pre class="nfo">{{'Loading...'|trans}}</pre>
+          </div>
+          <span class="text-muted">
+            {% if release.size != null %}<p class="float-left" title="{{ release.size|number_format }} B">{{ release.size|convertBytes }}</p>{% endif %}
+            <p class="float-right"><span data-moment="epoch" data-format="fromnow" data-time="{{ release.date }}"></span></p>
+          </span>
+        </div>
+      </div>
+
+      {# Modal for release links #}
+      {{ linksbox.input(release, game, loop) }}
+    {% endfor %}
+  <div class="game-card">
+    {% if user and user.class == 'ADMIN' %}
+      <div class="fas fa-fw fa-pen-square edit-btn" title="Edit Game" data-game-id="{{ game_id }}"></div>
+    {% endif %}
+    <a href="/game/{{ game.slug }}/" class="card-link" tabindex="{{ loop.index }}"></a>
+    <div class="card-title">
+      <span class="game-name">{{ game.name }}</span>
+    </div>
+    <div class="card-bottom">
+      <div class="card-releases">
+        {% for release in game.releases if release.group == groupPageGroupName %}
+          <div class="release">
+            <label class="name-mobile" for="modal-{{ game.slug }}-{{ loop.index }}">{{ release.name }}</label>
+            <span class="name">{{ release.is_p2p ? '<span class="tag p2p">P2P</span>' }} {{ release.name }}</span>
+            <div class="details-wrap">
+              <div class="details">
+                <span class="name">{{ release.name|replace({('-' ~ release.group): ("-<a href='/group/#{release.group}/'>#{release.group}</a>") })|raw }} <a href="/release/{{ release.name }}/" class="fas fa-link permalink" title="{{'Permalink'|trans}}"></a></span>
+                <span class="buttons faded">
+                  <button data-nfo="{{ release.name }}" class="no-js-hide">NFO</button>
+                  <label class="btn links-modal-trigger modal-calc-height" data-id="{{ release.id }}" for="links-{{ game.slug }}-{{ loop.index }}">{{'Direct Links'|trans}}</label>
+                  {% spaceless %} {# To connect them #}
+                  {% if release.magnet %}
+                    <a href="{{ release.magnet }}" class="btn">{{'Torrent'|trans}} <i class="fas fa-fw fa-sm fa-magnet"></i></a>
+                  {% endif %}
+                  {% if release.torrent %}
+                    <a href="{{ release.torrent }}" class="btn"><i class="fas fa-sm fa-download"></i></a>
+                  {% endif %}
+                  {% endspaceless %}
+                </span>
+                <span class="info-small text-muted faded">
+                  {% if release.size != null %}<span class="float-left" title="{{ release.size|number_format }} B">{{ release.size|convertBytes }}</span>{% endif %}
+                  <span class="date" data-moment="epoch" data-format="fromnow" data-time="{{ release.date }}"></span>
+                </span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        {% if game.releases is empty %}
+          {# <span class="release">
+            <span class="name">no release!</span>
+          </span> #}
+        {% endif %}
+      </div>
+    </div>
+    <div class="card-gamebuttons">
+      {% if game.steam_id %}
+        <a href="https://store.steampowered.com/app/{{ game.steam_id }}/" title="{{'Go to Steam'|trans}}" class="fab fa-steam" target="_blank"></a>
+      {% endif %}
+      {% if game.site %}
+        <a href="{{ game.site }}" title="{{'Go to Site'|trans}}" class="fas fa-globe" target="_blank"></a>
+      {% endif %}
+    </div>
+    {% if game.image_background == true %}
+      <div class="card-bg" style="background-image: url('/static/img/game_assets/custom/{{ game.id }}_bg_720p.jpg');"></div>
+      <div class="bg-fx" style="background-image: url('/static/img/game_assets/custom/{{ game.id }}_bg_720p.jpg');"></div>
+    {% elseif game.screen_id is not null %}
+      <div class="card-bg" style="background-image: url('/static/img/game_assets/bg_720p/{{ game.screen_id }}.jpg');"></div>
+      <div class="bg-fx" style="background-image: url('/static/img/game_assets/bg_720p/{{ game.screen_id }}.jpg');"></div>
+    {% else %}
+      <div class="card-bg" style="background-image: url('/static/img/nobg.png');"></div>
+      <div class="bg-fx" style="background-image: url('/static/img/nobg.png');"></div>
+    {% endif %}
+  </div>
+  {% endfor %}
+{% endmacro %}

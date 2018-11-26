@@ -1,0 +1,90 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{# WELCOME TO HELL HAHAHAHAHAHAHAHAHAHA I DON'T REMEMBER HOW ANY OF THIS WORKS #}
+
+{# kill me #}
+
+{% extends 'main.twig' %}
+
+{% set currentPage = 'search' %}
+
+{% block title %}{% if isGroup %}{{ term }}{% else %}{% if term %}{{ term }}{% else %}All Games{% endif %}{% endif %}{% endblock title %}
+
+{% block content %}
+<div class="container index nomargin">
+  {% if term %}
+    <h1>{% if isGroup %}{% trans %}Releases by {{ group }}{% endtrans %}{% else %}{{'Search Results'|trans}}{% endif %}</h1>
+  {% else %}
+    {% set term = 'all' %} {# rebind for ajax #}
+    <h1>{{'All Games'|trans}}</h1>
+  {% endif %}
+  <div class="search-settings">
+    {% if term != 'all' and isGroup == false %}
+      {% set totalresults = results.total %} {# {% trans %} tag breaks if used directly #}
+      <p class="text-muted">
+        {% trans %}{{ totalresults }} games found for "{{ term }}"{% endtrans %}
+      </p>
+    {% endif %}
+    <div class="righty">
+      {% if term != 'all' and isGroup == false %}
+        <a class="btn relevance" href="/search/{{ term }}/?{% if genres %}genres={{ genres|join(',') }}{% endif %}">{{'Relevance'|trans}}</a>
+      {% endif %}
+      <a class="btn title" href="?o={% if order == 'desc' %}asc{% else %}desc{% endif %}&t=title{% if genres %}&genres={{ genres|join(',') }}{% endif %}">{{'Title'|trans}}{% if orderType == 'title' %} <i class="fas fa-angle-{% if order == 'desc' %}down{% else %}up{% endif %}"></i>{% endif %}</a>
+      <a class="btn date" href="?o={% if order == 'desc' %}asc{% else %}desc{% endif %}&t=date{% if genres %}&genres={{ genres|join(',') }}{% endif %}">{{'Date'|trans}}{% if orderType == 'date' %} <i class="fas fa-angle-{% if order == 'desc' %}down{% else %}up{% endif %}"></i>{% endif %}</a>
+      <div class="dropdown" id="genres-dropdown">
+        <button>{{'Genres'|trans}}<i class="fas fa-right fa-caret-down"></i></button>
+        <label>
+          <input type="checkbox">
+          <ul>
+            {% for genre in genreList %}
+              <li><label><input type="checkbox" class="genre" data-slug="{{ genre.slug }}" {% if genre.slug in genres %}checked{% endif %}><i class="far fa-left fa-fw"></i> {{ genre.name }}</label></li>
+            {% endfor %}
+          </ul>
+        </label>
+      </div>
+    </div>
+  </div>
+  <span id="__search-block">
+  {% block searchblock %}
+  {% if term is empty %}
+    {% set term = 'all' %} {# rebind for ajax #}
+  {% endif %}
+  <span data-term="{{ term }}" class="hidden"></span>
+  {% import "pagination.twig" as pager %}
+    {% import "card.twig" as card %}
+
+    {# Change url path if on group page #}
+    {% set path = '/search/' ~ term|url_encode %}
+    {% if isGroup %}
+      {% set path = '/group/' ~ term %}
+    {% endif %}
+
+    {{ pager.input(pagination, path, order, orderType, genres) }}
+    <div id="game-cards-container">
+      <div class="game-card-sizer"></div>
+      {{ card.input(results, {'elastic': true, 'isGroup': isGroup, 'term': term}) }}
+    </div>
+    {{ pager.input(pagination, path, order, orderType, genres) }}
+  {% endblock searchblock %}
+  </span>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{ loadJS(['/static/js/search.min.js'], []) }}
+{% endblock scripts %}

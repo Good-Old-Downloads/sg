@@ -1,0 +1,305 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-29 04:53+0800\n"
+"PO-Revision-Date: 2017-12-29 07:12+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: ar\n"
+
+#: pages/nfo/index.php:12
+msgid "No NFO Found!"
+msgstr "لم يتم العثور على معلومات الإصدار (NFO)!"
+
+#: templates/card.twig:34
+msgid "Copy Links"
+msgstr "انسخ الروابط"
+
+#: templates/card.twig:37
+msgid "Magnet"
+msgstr "رابط Magnet"
+
+#: templates/card.twig:40 templates/card.twig:91 templates/game.twig:60
+msgid "Torrent"
+msgstr "تورنت"
+
+#: templates/card.twig:44 templates/main.twig:358
+msgid "Loading..."
+msgstr "جار التحميل..."
+
+#: templates/card.twig:50 templates/release_links.twig:13
+msgid "Uploading..."
+msgstr "جار الرفع."
+
+#: templates/card.twig:83
+msgid "Permalink"
+msgstr "الرابط الثابت"
+
+#: templates/card.twig:87 templates/game.twig:56
+msgid "Direct Links"
+msgstr "روابط مباشرة"
+
+#: templates/card.twig:115 templates/game.twig:31
+msgid "Go to Steam"
+msgstr "اذهب إلى ستيم (Steam)"
+
+#: templates/card.twig:118 templates/game.twig:34
+msgid "Go to Site"
+msgstr "اذهب إلى الموقع"
+
+#: templates/faq.twig:3 templates/faq.twig:7 templates/main.twig:92
+msgid "FAQ"
+msgstr "الأسئلة الأكثر شيوعاً (FAQ)"
+
+#: templates/faq.twig:8
+msgid "Why make another \"scene games\" site when there are countless others?"
+msgstr "لماذا هذا الموقع بما ان هناك عدد لا يحصى من المواقع الاخرى؟"
+
+#: templates/faq.twig:9
+msgid ""
+"All the other sites are littered with ads and pop-ups. They are also slow at "
+"uploading and profit from scene releases!"
+msgstr ""
+"جميع المواقع الأخرى مليئة بالإعلانات اللتي تظهر ظهور مفاجئ. وهذه المواقع "
+"أيضا تكسب ربح من الإصدارات وهم بطيئين برفع الروابط!"
+
+#: templates/faq.twig:11
+msgid ""
+"There is an incorrect game associated with a release. Why does this happen?"
+msgstr "يوجد لعبة غير الموجودة باسم الإصدار, لماذا يحدث ذلك؟"
+
+#: templates/faq.twig:12
+msgid ""
+"Sometimes a release gets matched with the wrong game. We usually notice this "
+"and fix it."
+msgstr "أحيانا يطابق الإصدار لعبة أخرى بالخطأ. بالعادة نحن نلاحظ ذلك ونصلحه."
+
+#: templates/faq.twig:14
+msgid "What torrent client should I use?"
+msgstr "ما هو برنامج التورنت اللذي على استخدامه؟"
+
+#: templates/faq.twig:15
+msgid ""
+"Torrent users should be using %deluge% or %qbittorent% (anything besides "
+"μTorrent please!)."
+msgstr ""
+"%deluge% او %qbittorent% عليك استخدام\n"
+"μTorrent استخدم أي شيء الا"
+
+#: templates/faq.twig:17
+msgid ""
+"What if the direct links go down or there are no seeders for the release I "
+"want?"
+msgstr ""
+"ماذا اذا الروابط المباشرة لا تعمل او التورنت لا يعمل للإصدار اللذي اريده؟"
+
+#: templates/faq.twig:18
+msgid ""
+"We will be implementing a way for releases to be re-uploaded in the future. "
+"We DO NOT re-seed torrents, so please consider seeding back what you leech "
+"(maybe get a seedbox and help out)."
+msgstr ""
+"سوف نعمل على طريقة لإعادة رفع الإصدارات في المستقبل. نحن لا نعيد رفع "
+"التورنت. اذا رجائا حاول ان تستمر في رفع التورنت عندما تنتهي من تنزيله."
+
+#: templates/faq.twig:20
+msgid ""
+"How do I mount an ISO and install the game I downloaded and how do I crack "
+"it?!"
+msgstr ""
+"كيف يمكنني تشغيل ملف اسطوانة في الدرايف الوهمي (ايزو) وتنصيب اللعبة وعمل "
+"كراك لها؟!"
+
+#: templates/faq.twig:21
+msgid ""
+"You must be a virgin at this ;) There are countless tutorials if you do a "
+"Google search. Basically, if you know how to copy and paste things you're "
+"already a pro."
+msgstr ""
+"يوجد هناك دروس كثيرة كيف تعمل ذلك اذا بحثت على جوجل. اذا كنت تعرف كيف تعمل "
+"لصق ونسخ اذا انت محترف ويجب ان تكون قادر على ذلك."
+
+#: templates/faq.twig:23
+msgid "Help the game I downloaded doesn't work!"
+msgstr "الرجاء المساعدة. اللعبة اللتي حملتها لا تعمل!"
+
+#: templates/faq.twig:24
+msgid ""
+"First, please be sure you are cracking the game after you install it (and "
+"that your anti-virus isn't deleting the crack!). \n"
+"  Second, some releases may not work as the scene does make mistakes. If so, "
+"a \"PROPER\" release will be usually be posted."
+msgstr ""
+"أولا.. تأكد بانك نسخت الكراك بعد التنصيب (وان مكافح الفايروس خاصتك لا يحذف "
+"الكراك!). \n"
+"ثانيا. أحيانا بعض الإصدارات يمكن ان تكون لا تعمل في حالات نادرة لان الإصدار "
+"يمكن ان يكون فيه خطأ. في هذه الحالة, اصدار مناسب \"بروبر\" سوف يتم رفعه."
+
+#: templates/faq.twig:27
+msgid "I love this site! How can I donate?"
+msgstr "انا احب هذا الموقع! كيف يمكنني التبرع؟"
+
+#: templates/faq.twig:28
+msgid ""
+"We're not going to profit off of scene releases. You can donate to us by "
+"seeding the torrents you download or by telling others about this site (on "
+"forums, Reddit, your friends, etc)."
+msgstr ""
+"نحن لا نجني ربح من الإصدارات. اذا كنت تريد المساعدة, استمر برفع التورينت بعد "
+"الانتهاء من التنزيل او اخبر الناس الاخرون عن هذا الموقع (على المنتديات او "
+"ريديت او اصدقائك او الخ)."
+
+#: templates/game.twig:37
+msgid "Edit Game"
+msgstr "تحرير اللعبة"
+
+#: templates/game.twig:53 templates/game.twig:54
+msgid "NFO"
+msgstr "معلومات الإصدار NFO"
+
+#: templates/genres.twig:3 templates/search.twig:33
+msgid "Genres"
+msgstr "الانواع"
+
+#: templates/index.twig:13
+msgid "Staff Picks"
+msgstr "تم اختياره من الموقع"
+
+#: templates/index.twig:20
+msgid "New Releases"
+msgstr "إصدارات جديدة"
+
+#: templates/main.twig:70 templates/main.twig:131
+msgid "Home"
+msgstr "الصفحة الرئيسية"
+
+#: templates/main.twig:73
+msgid "Search"
+msgstr "بحث"
+
+#: templates/main.twig:79
+msgid "Explore"
+msgstr "تصفح"
+
+#: templates/main.twig:83 templates/search.twig:17
+msgid "All Games"
+msgstr "جميع الالعاب"
+
+#: templates/main.twig:84
+msgid "P2P (Soon™?)"
+msgstr "من جهاز الى اخر \"P2P\" (قريبا؟)"
+
+#: templates/main.twig:93
+msgid "RSS Feeds"
+msgstr "ملقم RSS"
+
+#: templates/main.twig:98
+msgid "RSS Feed for Torrent clients"
+msgstr "ملقم RSS لبرامج التورنت"
+
+#: templates/main.twig:98
+msgid "Torrents"
+msgstr "تورنت Torrent"
+
+#: templates/main.twig:103 templates/main.twig:140 templates/register.twig:25
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: templates/main.twig:107 templates/main.twig:147 templates/register.twig:3
+msgid "Admin"
+msgstr "المدير"
+
+#: templates/main.twig:109
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: templates/main.twig:112
+msgid "Change Language"
+msgstr "تغيير اللغة"
+
+#: templates/main.twig:118
+msgid "English"
+msgstr "انجليزي"
+
+#: templates/main.twig:119
+msgid "German"
+msgstr "الماني"
+
+#: templates/main.twig:120
+msgid "Russian"
+msgstr "روسي"
+
+#: templates/main.twig:121
+msgid "Spanish"
+msgstr "اسباني"
+
+#: templates/main.twig:122
+msgid "Hodor"
+msgstr "هودور هودور"
+
+#: templates/main.twig:135
+msgid "Browse"
+msgstr "تصفح"
+
+#: templates/page_restricted.twig:3
+msgid "Access Denied"
+msgstr "الدخول مرفوض"
+
+#: templates/page_restricted.twig:7
+msgid "You cannot view this page."
+msgstr "لا يمكنك رؤية هذه الصفحة."
+
+#: templates/register.twig:16
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: templates/register.twig:19
+msgid "Password"
+msgstr "كلوة المرور"
+
+#: templates/register.twig:22
+msgid "Registration Code"
+msgstr "رقم التسجيل"
+
+#: templates/register.twig:26
+msgid "Register"
+msgstr "التسجيل"
+
+#: templates/release_links.twig:9
+msgid "Copy Links to Clipboard"
+msgstr "انسخ الروابط الى الحافظة"
+
+#: templates/release_links.twig:10
+msgid "Open all Links (Allow Popups)"
+msgstr "افتح جميع الروابط (اسمح بال pop ups)"
+
+#: templates/search.twig:14
+msgid "Releases by %group%"
+msgstr "إصدارات من %group%"
+
+#: templates/search.twig:14
+msgid "Search Results"
+msgstr "نتائج البحث"
+
+#: templates/search.twig:23
+msgid "%totalresults% games found for \"%term%\""
+msgstr "%totalresults% العاب وجدت ل \"%term%\""
+
+#: templates/search.twig:28
+msgid "Relevance"
+msgstr "ذات صلة"
+
+#: templates/search.twig:30
+msgid "Title"
+msgstr "العنوان"
+
+#: templates/search.twig:31
+msgid "Date"
+msgstr "التاريخ"

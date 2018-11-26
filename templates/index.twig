@@ -1,0 +1,48 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends 'main.twig' %}
+
+{% set currentPage = 'home' %}
+
+{% block title %}Scene Games{% endblock title %}
+
+{% block content %}
+<div class="container index nomargin">
+  {% if notice %}
+    <div id="notice" class="text-center">{{ notice|raw }}</div>
+  {% endif %}
+  {% if featured %}
+  <h1>{{'Staff Picks'|trans}}</h1>
+  <div id="featured">
+    {% for game in featured %}
+        <a href="/game/{{ game.slug }}/" title="{{ game.name }}"><img src="{{ game.cover }}"></a>
+    {% endfor %}
+  </div>
+  {% endif %}
+  <h1>{{'New Releases'|trans}}</h1>
+  <div id="game-cards-container">
+    <div class="game-card-sizer"></div>
+    {% import "card.twig" as card %}
+    {{ card.input(latest) }}
+  </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{{ loadJS(['/static/js/index.min.js'], ['sha256-yfAWby/bSu/ekCa2NXrg/GLy+cyD2HFQEk/wXT+f4zk=']) }}
+{% endblock scripts %}

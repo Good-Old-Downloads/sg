@@ -1,0 +1,59 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends 'main.twig' %}
+
+{% set currentPage = 'queue' %}
+
+{% block title %}{{'Upload Queue'|trans}}{% endblock title %}
+
+{% block content %}
+<div class="container nomargin">
+  <h1>{{'Upload Queue'|trans}}</h1>
+  <p>Here is the list of old releases currently in the queue to be re-uploaded.</p>
+  <table>
+    <thead>
+      <tr>
+        <th>Game</th>
+        <th>Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for release in uploading %}
+      <tr>
+        <td><a href="/release/{{ release.name }}">{{ release.name }}</a></td>
+        {% if release.state == 'UPLOADING' %}
+          <td class="text-center">Uploading...</td>
+        {% else %}
+        <td class="text-center">Votes: {{ release.votes }}</td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+      {% for release in releases %}
+      <tr>
+        <td><a href="/release/{{ release.name }}">{{ release.name }}</a></td>
+        {% if release.state == 'UPLOADING' %}
+          <td class="text-center">Uploading...</td>
+        {% else %}
+        <td class="text-center">Votes: {{ release.votes }}</td>
+        {% endif %}
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock content %}

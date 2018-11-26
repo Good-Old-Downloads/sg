@@ -1,0 +1,50 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends 'main.twig' %}
+
+{% block title %}{{'Admin'|trans}}{% endblock title %}
+
+{% block content %}
+<div class="container nomargin">
+    <ul></ul>
+    <div id="login-errors">
+        {% if messages %}
+            {{ message }}
+        {% endif %}
+    </div>
+    <form action="/login" method="POST" id="login">
+        <h1>Login</h1>
+        <div class="form-input dark">
+            <input type="text" name="username" placeholder="{{'Username'|trans}}" data-username>
+        </div>
+        <div class="form-input dark">
+            <input type="password" name="password" placeholder="{{'Password'|trans}}" data-password>
+        </div>
+        <div class="form-input dark hidden" id="regcode">
+            <input type="text" name="regcode" placeholder="{{'Registration Code'|trans}}" data-regcode>
+        </div>
+        <div class="form-input dark form-button float-right">
+            <input class="btn float-right" type="submit" value="{{'Login'|trans}}">
+            <button class="btn" id="regbtn">{{'Register'|trans}}</button>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+{% block scripts %}
+{{ loadJS(['/static/js/login.min.js'], ['sha256-4RSPtT1YI3RaucYlHh8byLvT6VPTDWavJbQ9DZmrpI0=']) }}
+{% endblock scripts %}

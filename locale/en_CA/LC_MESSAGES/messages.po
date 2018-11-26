@@ -1,0 +1,315 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SceneGames\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-29 04:40+0800\n"
+"PO-Revision-Date: 2017-12-29 04:41+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Loco-Source-Locale: en_AR\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-Flags-xgettext: --add-comments\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Poedit-SearchPath-0: templates\n"
+"X-Poedit-SearchPath-1: pages\n"
+
+#: pages/nfo/index.php:12
+msgid "No NFO Found!"
+msgstr "Hodor HODOR HODOR!"
+
+#: templates/card.twig:34
+msgid "Copy Links"
+msgstr "Hodor hodor"
+
+#: templates/card.twig:37
+msgid "Magnet"
+msgstr "Hodor"
+
+#: templates/card.twig:40 templates/card.twig:91 templates/game.twig:60
+msgid "Torrent"
+msgstr "Hodor"
+
+#: templates/card.twig:44 templates/main.twig:358
+msgid "Loading..."
+msgstr "Hodor..."
+
+#: templates/card.twig:50 templates/release_links.twig:13
+msgid "Uploading..."
+msgstr "Hodor..."
+
+#: templates/card.twig:83
+msgid "Permalink"
+msgstr "Hodor"
+
+#: templates/card.twig:87 templates/game.twig:56
+msgid "Direct Links"
+msgstr "Hodor Hodor"
+
+#: templates/card.twig:115 templates/game.twig:31
+msgid "Go to Steam"
+msgstr "Hodor hodor Hodor"
+
+#: templates/card.twig:118 templates/game.twig:34
+msgid "Go to Site"
+msgstr "Hodor hodor Hodor"
+
+#: templates/faq.twig:3 templates/faq.twig:7 templates/main.twig:92
+msgid "FAQ"
+msgstr "H.O.D.O.R"
+
+#: templates/faq.twig:8
+msgid "Why make another \"scene games\" site when there are countless others?"
+msgstr "Hodor hodor hodor \"hodor hodor\" hodor hodor hodor hodor hodor hodor?"
+
+#: templates/faq.twig:9
+msgid ""
+"All the other sites are littered with ads and pop-ups. They are also slow at "
+"uploading and profit from scene releases!"
+msgstr ""
+"Hodor hodor hodor hodor hodor hodor hodor hodor hodor hodor-hodor. Hodor "
+"hodor hodor hodor hodor hodor hodor hodor hodor hodor hodor!"
+
+#: templates/faq.twig:11
+msgid ""
+"There is an incorrect game associated with a release. Why does this happen?"
+msgstr ""
+"Hodor hodor hodor hodor hodor hodor hodor hodor hodor. Hodor hodor hodor "
+"hodor?"
+
+#: templates/faq.twig:12
+msgid ""
+"Sometimes a release gets matched with the wrong game. We usually notice this "
+"and fix it."
+msgstr ""
+"Hodor hodor hodor hodor hodor hodor hodor hodor hodor. Hodor hodor hodor "
+"hodor hodor."
+
+#: templates/faq.twig:14
+msgid "What torrent client should I use?"
+msgstr "Hodor hodor hodor hodor hodor hodor?"
+
+#: templates/faq.twig:15
+msgid ""
+"Torrent users should be using %deluge% or %qbittorent% (anything besides "
+"μTorrent please!)."
+msgstr ""
+"Hodor hodor hodor hodor hodor %deluge% hodor %qbittorent% (hodor hodor "
+"μhodor hodor!)."
+
+#: templates/faq.twig:17
+msgid ""
+"What if the direct links go down or there are no seeders for the release I "
+"want?"
+msgstr ""
+"Hodor hodor hodor hodor hodor hodor hodor hodor hodor hodor hodor hodor "
+"hodor?"
+
+#: templates/faq.twig:18
+msgid ""
+"We will be implementing a way for releases to be re-uploaded in the future. "
+"We DO NOT re-seed torrents, so please consider seeding back what you leech "
+"(maybe get a seedbox and help out)."
+msgstr ""
+"Hodor hodor hodor hodor hodor hodor-hodor hodor hodor hodor. Hodor HODOR "
+"hodor-hodor hodor, hodor hodor hodor hodor hodor hodor hodor (hodor hodor "
+"hodor hodor hodor)."
+
+#: templates/faq.twig:20
+msgid ""
+"How do I mount an ISO and install the game I downloaded and how do I crack "
+"it?!"
+msgstr ""
+"Hodor hodor hodor HODOR hodor hodor hodor hodor hodor hodor hodor hodor "
+"hodor?!"
+
+#: templates/faq.twig:21
+msgid ""
+"You must be a virgin at this ;) There are countless tutorials if you do a "
+"Google search. Basically, if you know how to copy and paste things you're "
+"already a pro."
+msgstr ""
+"Hodor hodor  ;) hodor hodor hodor hodor hodor Hodor hodor. Hodor, hodor "
+"hodor hodor hodor hodor hodor hodor hodor hodor'hodor hodor hodor hodor."
+
+#: templates/faq.twig:23
+msgid "Help the game I downloaded doesn't work!"
+msgstr "Hodor hodor hodor hodor hodor hodor hodor!"
+
+#: templates/faq.twig:24
+msgid ""
+"First, please be sure you are cracking the game after you install it (and "
+"that your anti-virus isn't deleting the crack!). \n"
+"  Second, some releases may not work as the scene does make mistakes. If so, "
+"a \"PROPER\" release will be usually be posted."
+msgstr ""
+"Hodor, hodor hodor hodor hodor (hodor hodor hodor-hodor hodor hodor hodor "
+"hodor!). Hodor\n"
+"Hodor, hodor hodor hodor hodor hodor. Hodor hodor, hodor \"HODOR\" hodor "
+"hodor hodor hodor."
+
+#: templates/faq.twig:27
+msgid "I love this site! How can I donate?"
+msgstr "Hodor hodor hodor! hodor hodor hodor hodor?"
+
+#: templates/faq.twig:28
+msgid ""
+"We're not going to profit off of scene releases. You can donate to us by "
+"seeding the torrents you download or by telling others about this site (on "
+"forums, Reddit, your friends, etc)."
+msgstr ""
+"Hodor hodor. Hodor hodor hodor hodor hodor hodor (hodor hodor, hodor, hodor "
+"hodor, hodor)."
+
+#: templates/game.twig:37
+msgid "Edit Game"
+msgstr "Hodor Hodor"
+
+#: templates/game.twig:53 templates/game.twig:54
+msgid "NFO"
+msgstr "HODOR"
+
+#: templates/genres.twig:3 templates/search.twig:33
+msgid "Genres"
+msgstr "Hodor"
+
+#: templates/index.twig:13
+msgid "Staff Picks"
+msgstr "Hodor Hodor"
+
+#: templates/index.twig:20
+msgid "New Releases"
+msgstr "Hodor Hodor"
+
+#: templates/main.twig:70 templates/main.twig:131
+msgid "Home"
+msgstr "Hodor"
+
+#: templates/main.twig:73
+msgid "Search"
+msgstr "Hodor"
+
+#: templates/main.twig:79
+msgid "Explore"
+msgstr "Hodor"
+
+#: templates/main.twig:83 templates/search.twig:17
+msgid "All Games"
+msgstr "Hodor Hodor"
+
+#: templates/main.twig:84
+msgid "P2P (Soon™?)"
+msgstr "Hodor (Hodor™?)"
+
+#: templates/main.twig:93
+msgid "RSS Feeds"
+msgstr "Hodor Hodor"
+
+#: templates/main.twig:98
+msgid "RSS Feed for Torrent clients"
+msgstr "Hodor Hodor hodor Hodor Hodor"
+
+#: templates/main.twig:98
+msgid "Torrents"
+msgstr "Hodor"
+
+#: templates/main.twig:103 templates/main.twig:140 templates/register.twig:25
+msgid "Login"
+msgstr "Hodor"
+
+#: templates/main.twig:107 templates/main.twig:147 templates/register.twig:3
+msgid "Admin"
+msgstr "Hodor"
+
+#: templates/main.twig:109
+msgid "Logout"
+msgstr "Hodor"
+
+#: templates/main.twig:112
+msgid "Change Language"
+msgstr "Hodor Hodor"
+
+#: templates/main.twig:118
+msgid "English"
+msgstr "Hodor (En)"
+
+#: templates/main.twig:119
+msgid "German"
+msgstr "Hodor (De)"
+
+#: templates/main.twig:120
+msgid "Russian"
+msgstr "Hodor (Ru)"
+
+#: templates/main.twig:121
+msgid "Spanish"
+msgstr "Hodor (Es)"
+
+#: templates/main.twig:122
+msgid "Hodor"
+msgstr "Hold the Door"
+
+#: templates/main.twig:135
+msgid "Browse"
+msgstr "Hodor"
+
+#: templates/page_restricted.twig:3
+msgid "Access Denied"
+msgstr "Hodor Hodor"
+
+#: templates/page_restricted.twig:7
+msgid "You cannot view this page."
+msgstr "Hodor hodor hodor hodor."
+
+#: templates/register.twig:16
+msgid "Username"
+msgstr "Hodor"
+
+#: templates/register.twig:19
+msgid "Password"
+msgstr "Hodor"
+
+#: templates/register.twig:22
+msgid "Registration Code"
+msgstr "Hodor Hodor"
+
+#: templates/register.twig:26
+msgid "Register"
+msgstr "Hodor"
+
+#: templates/release_links.twig:9
+msgid "Copy Links to Clipboard"
+msgstr "Hodor Hodor hodor Hodor"
+
+#: templates/release_links.twig:10
+msgid "Open all Links (Allow Popups)"
+msgstr "Hodor hodor Hodor (Hodor Hodor-Hodor)"
+
+#: templates/search.twig:14
+msgid "Releases by %group%"
+msgstr "Hodor %group%"
+
+#: templates/search.twig:14
+msgid "Search Results"
+msgstr "Hodor Hodor"
+
+#: templates/search.twig:23
+msgid "%totalresults% games found for \"%term%\""
+msgstr "%totalresults% Hodor Hodor \"%term%\""
+
+#: templates/search.twig:28
+msgid "Relevance"
+msgstr "Hodor"
+
+#: templates/search.twig:30
+msgid "Title"
+msgstr "Hodor"
+
+#: templates/search.twig:31
+msgid "Date"
+msgstr "Hodor"

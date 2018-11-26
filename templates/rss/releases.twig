@@ -1,0 +1,38 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title> Last 50 Scene Games Released </title>
+    <link> https://scenegames.goodolddownloads.com/ </link>
+    <description>Last 50 Scene Games released. https://scenegames.goodolddownloads.com/</description>
+    <language>en-us</language>
+    <ttl>35</ttl>
+    <lastBuildDate>{{ now|date(DATE_RSS) }}</lastBuildDate>
+    <docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    {% for game in latest %}
+    <item>
+      <title>{{ game.rls_name }}</title>
+      <pubDate>{{ game.date|date(DATE_RSS) }}</pubDate>
+      <description>{{ game.description }}</description>
+      <link>https://scenegames.goodolddownloads.com/release/{{ game.rls_name }}</link>
+      <guid>{{ game.rls_name|lower }}</guid>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>

@@ -1,0 +1,1281 @@
+/*
+  SceneGames
+  Copyright (C) 2018  GoodOldDownloads
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+@import 'loader';
+$font-stack: 'Roboto', sans-serif;
+
+$navHeight: 60px;
+
+//@include mq-show-breakpoints((xs, sm, md, lg));
+
+$gameHeaderHeight: 300px;
+
+$cardHoverAnimation: $easeOutQuint;
+$cardHoverAnimationSpeed: 500ms;
+
+@mixin no-js() {
+  body.no-js & {
+    @content;
+  }
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 400;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font: 100% $font-stack;
+  background: $backgroundColor;
+  color: $secondaryTextColor;
+  padding-top: $navHeight;
+  &.no-scroll {
+    overflow: hidden !important;
+  }
+  &.no-js {
+    .no-js-hide {
+      display: none;
+    }
+  }
+}
+
+a {
+  color: #000;
+  &:hover {
+    color: $highlightColor;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 15px;
+  > h1 {
+    padding: 0 10px;
+  }
+  @include mq($until: sm) {
+    > h1 {
+      text-align: center;
+    }
+  }
+  &.index {
+    overflow: hidden;
+    max-width: 1500px;
+    min-height: 100%;
+    @include mq(1500px) {
+      overflow: visible;
+    }
+  }
+  &.game {
+    margin-top: $gameHeaderHeight+$navHeight+16;
+  }
+  &.faq {
+    > h3 {
+      margin-bottom: 3px;
+    }
+    > p {
+      margin: 0;
+    }
+  }
+  &.nomargin {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  @include mq($until: sm) {
+    margin-bottom: 56px;
+  }
+}
+
+#featured {
+  display: flex;
+  overflow: auto;
+  text-align: center;
+  @include mq($from: sm) {
+    display: block;
+    overflow: visible;
+  }
+  img {
+    max-height: 150px;
+    min-height: 150px;
+  }
+  // only shows up for admin page
+  &.admin {
+    position: relative;
+    .drag {
+      
+      .remove {
+        display: none;
+      }
+      &:hover > .remove {
+        display: block;
+        position: absolute;
+        color: #fff;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        background: #000;
+        z-index: 2;
+        &:hover {
+          background: #ff2e2e;
+        }
+      }
+    }
+    &:hover {
+      cursor: grab;
+    }
+  }
+}
+
+#search-results {
+  position: absolute;
+  z-index: 51;
+  .inner {
+    position: fixed;
+    background: $primaryColor;
+    width: 100%;
+    height: 100%;
+    padding-top: 10px;
+    left: 0;
+    top: $navHeight;
+    overflow: auto;
+    z-index: 51; // Above the shadow
+    transform: translateX(-100%);
+    transition: transform 250ms $easeOutQuint;
+    @include mq($from: sm) {
+      min-width: 500px;
+      width: auto;
+    }
+    .game {
+      color: $primaryTextColor;
+      padding: 0 20px;
+      a {
+        display: inline-block;
+        width: 100%;
+        padding: 10px;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+      .release {
+        display: block;
+        padding-left: 20px;
+      }
+    }
+  }
+
+  &.show {
+    .inner {
+      transform: translateX(0);
+    }
+  }
+}
+
+#darken {
+  content: '';
+  display: block;
+  visibility: hidden;
+  position: fixed;
+  top: $navHeight;
+  right: 0;
+  z-index: 30;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0);
+  transition: background-color 250ms ease;
+  &.on {
+    visibility: visible;
+    background-color: rgba(0,0,0,0.6);
+  }
+}
+
+#navigation {
+  position: fixed;
+  background: $primaryColor;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $navHeight;
+  box-shadow: 0px 0px 3px 2px rgba($primaryDarkColor,.5);
+  z-index: 50;
+  .container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 1500px; 
+    > div, > a {
+      height: 40px;
+    }
+    > a {
+      background: $primaryLightColor;
+      padding: 10px;
+    }
+    > a, > .dropdown {
+      margin-right: 10px;
+    }
+    #logo {
+      position: relative;
+      overflow: hidden;
+      width: $navHeight;
+      height: $navHeight;
+      padding: 5px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .othersite {
+      @extend #logo;
+      padding: 0 5px;
+      box-sizing: content-box;
+      img {
+        width: 55px;
+        height: $navHeight;
+      }
+    }
+    .dropdown {
+      > button {
+        background: $primaryLightColor;
+        height: 100%;
+      }
+      ul {
+        top: 24px;
+      }
+    }
+    #search-bar {
+      flex: 1 0;
+      display: flex;
+      align-items: center;
+      color: $secondaryTextColor;
+      margin-right: 10px;
+      #search-btn {
+        position: relative;
+        background: $primaryLightColor;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        i {
+          position: absolute;
+          left: 10px;
+          top: 12px;
+        }
+      }
+      input {
+        background: $primaryLightColor;
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        padding-left: 1em;
+        border: 0;
+        @include mq($from: md) {
+          max-width: 400px;
+        }
+        &:focus {
+          outline: none;
+          background: $primaryLightColor;
+        }
+        &::placeholder {
+          color: $secondaryTextColor;
+        }
+      }
+    }
+  }
+}
+
+///////
+// Mobile Bottom Nav
+///////
+#navigation-mobile {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  background: $primaryColor;
+  width: 100%;
+  height: 56px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  .nav-item {
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+    font-size: 0; // weird spacing
+    flex: 1;
+    text-align: center;
+    height: 100%;
+    //max-width: 168px; as per the material spec but we're using flex-grow soooo
+    min-width: 80px;
+    padding: 8px 12px 10px 12px;
+    transition: all 140ms ease-out;
+    .icon {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      font-size: 24px;
+    }
+    .label {
+      font-size: 12px;
+    }
+    &.active, &:hover {
+      color: $highlightColor;
+      padding: 6px 12px 10px 12px;
+      background: rgba($primaryLightColor, 0.3);
+      .label {
+        font-size: 14px;
+      }
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+  @include mq($from: sm) {
+    display: none;
+  }
+}
+
+#game-cards-container {
+  background-color: $primaryLightColor;
+  @include no-js() {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+.game-card, .game-card-sizer {
+  width: 100%;
+  @include mq($from: sm) {
+    width: 50%;
+  }
+  @include mq($from: lg) {
+    width: 33.333333333333336%;
+  }
+  &.width-100 {
+    widows: 100%;
+  }
+}
+.game-card-sizer {
+  @include no-js() {
+    display: none;
+  }
+}
+
+
+// NFO
+.nfo-container {
+  display: flex;
+  justify-content: center;
+  background: #000;
+  margin: 0 -10px;
+  @include mq($from: md) {
+    margin: auto;
+  }
+  pre.nfo {
+    font-family: 'vga-eight', monospace;
+    //font-size: 16px;
+    display: inline-block;
+    color: #fff;
+    font-size: 10px; // Fallback
+    font-size: 1.95vw; // less than 2 cause padding and shit
+    padding: 5px 0;
+    margin: 0;
+    line-height: 1;
+    @include mq($from: md) {
+      font-size: 13px;
+      padding: 25px;
+    }
+  }
+}
+
+// Mobile release details modal
+.modal.mobile .modal__inner {
+  .modal-download-buttons {
+    display: flex;
+    margin: 0 -10px;
+    .btn {
+      text-align: center;
+      flex: 1;
+    }
+  }
+  .rls-name {
+    margin: 0;
+    word-wrap: break-word;
+    padding: 10px 0;
+  }
+}
+
+.modal .links-loading {
+  margin: 0 auto;
+  text-align: center;
+}
+.modal .release-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  a {
+    color: #000;
+    &:hover {
+      color: $highlightColor;
+    }
+  }
+  a.fas {
+    cursor: pointer;
+    opacity: .20;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .tut-link {
+    color: $colorRed;
+  }
+  .host {
+    cursor: pointer;
+    span {
+      min-width: 200px;
+      display: inline-block;
+    }
+    a.fa-fw {
+      text-decoration: none;
+    }
+  }
+  .host-expand-check {
+    display: none;
+    & + .hosts-group.expand {
+      display: none;
+    }
+    &:checked {
+      & + .hosts-group.expand {
+        display: block;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+// Admin edit game modal
+.editgame-container {
+  .releases {
+    .batch-checkbox {
+      vertical-align: top;
+    }
+    .game-autocomplete {
+      display: inline;
+      position: relative;
+      > input {
+        min-width: 200px;
+      }
+      > ul {
+        position: absolute;
+        background: #fff;
+        left: 0;
+        right: 0;
+      }
+    }
+    summary {
+      cursor: pointer;
+    }
+  }
+  .game-autocomplete {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      li {
+        cursor: pointer;
+        padding: 5px;
+        &:hover {
+          background: #d7d7d7;
+        }
+      }
+    }
+  }
+  #tgdb-selector-container {
+    max-height: 290px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    img {
+      max-height: 190px;
+      max-width: 33%;
+      margin-right: 2px;
+    }
+  }
+}
+
+// Captcha modal
+#modal-captcha + .modal {
+  z-index: 1000; // 1 up from default modal
+}
+
+.game-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  float: left; // for non-javascript users
+  position: relative;
+  min-height: 150px;
+  padding: 5px;
+  z-index: 1;
+  @include no-js() {
+    height: auto;
+  }
+  @include mq($from: sm) {
+    z-index: 1;
+    transition: z-index 0s linear $cardHoverAnimationSpeed/4; // Add a delay for z-index on hover-out (fade first, then send to back)
+  }
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba($primaryLightColor, 0.85);
+    z-index: -1;
+  }
+  // the lengths you go for minimal javascript...
+  .card-link {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+    }
+  }
+  .card-bg {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: opacity 350ms $ease-in;
+    opacity: 0;
+    z-index: -2;
+    @include no-js() {
+      opacity: 1;
+    }
+  }
+  @include mq($from: sm) {
+    .bg-fx {
+      display: block;
+      position: absolute;
+      transition: opacity $cardHoverAnimationSpeed $cardHoverAnimation;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: brightness(200%) blur(30px);
+      transform: scale(1.04);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      z-index: -3;
+    }
+  }
+  &:hover, &:focus {
+    transition: z-index 0s linear 0s; // immediately fade z-index in
+    z-index: 2;
+    .bg-fx {
+      opacity: 1;
+    }
+  }
+  .card-gamebuttons {
+    align-self: flex-end;
+    z-index: 1;
+    a {
+      color: #fff;
+      padding: 5px;
+      text-decoration: none;
+      &:hover {
+        color: $highlightColor;
+        cursor: pointer;
+      }
+    }
+  }
+  // Shows for admins only
+  .edit-btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    &:hover {
+      color: $highlightColor;
+      cursor: pointer;
+    }
+  }
+  //
+
+  @include mq($from: sm) {
+    // Scale backs on ::hover
+    &:before, .card-bg {
+      transition: transform $cardHoverAnimationSpeed $cardHoverAnimation; // scale()
+    }
+    &:hover {
+      &:before, .card-bg {
+        transform: scale(1.04);
+      }
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+  .card-title {
+    padding: 10px;
+    width: 100%;
+    .game-name {
+      display: inline-block;
+      color: $primaryTextColor;
+      font-weight: 400;
+      font-size: 1.65em;
+      text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.45);
+    }
+  }
+  .card-bottom {
+    position: relative;
+    width: 100%;
+    min-height: 70px; // flexbox hack so the links can stay on the bottom
+    z-index: 2;
+    .card-releases {
+      min-width: 0; // so text can truncate. (idk why, just css being a retard i guess)
+      .release {
+        color: $primaryTextColor;
+        display: block;
+        overflow: hidden;
+        > .name-mobile {
+          display: block;
+          color: inherit;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          transition: height 200ms $easeOutSine;
+          font-weight: 300;
+          height: 23px;
+          text-decoration: none;
+          white-space: nowrap;
+        }
+        > .name {
+          display: none;
+        }
+        @include mq($from: sm) {
+          > .name-mobile {
+            display: none;
+          }
+          > .name {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: height 200ms $easeOutSine;
+            font-weight: 300;
+            height: 23px;
+            line-height: 23px;
+            white-space: nowrap;
+            > .tag {
+              display: inline-block;
+              height: inherit;
+              font-weight: 500;
+              font-size: .85em;
+              background: rgba(0,0,0,0.30);
+              padding: 0 3px;
+            }
+            .p2p {
+              color: $colorP2P;
+            }
+            .repack {
+              color: transparent;
+            }
+          }
+        }
+        .details-wrap {
+          display: flex;
+          position: relative;
+          height: 0;
+          transition: height 200ms $easeOutSine;
+          background: $backgroundColor;
+          .details {
+            display: flex;
+            flex-wrap: wrap;
+            flex: 1 0 0;
+            overflow: visible;
+            white-space: nowrap;
+            background: inherit;
+            color: #000;
+            padding: 5px;
+            > .name {
+              width: 100%;
+              height: 22px;
+              font-weight: 400;
+              a {
+                color: inherit;
+                &:hover {
+                  color: $highlightColor;
+                }
+              }
+              > .permalink {
+                text-decoration: none;
+              }
+            }
+            > .buttons {
+              width: 100%;
+              position: relative;
+              margin: 0 auto;
+              left: 0;
+              right: 0;
+              .btn, button {
+                height: 30px;
+                line-height: 21px;
+              }
+            }
+            > .info-small {
+              width: 100%;
+              font-size: 12px;
+              .status {
+                float: left;
+              }
+              .date {
+                float: right;
+              }
+            }
+            .faded {
+              opacity: 0;
+            }
+            .type {
+              width: 33%;
+            }
+          }
+        }
+        @include mq($from: sm) {
+          &:hover {
+            overflow: visible;
+            box-shadow: 0 2px 3px rgba(0,0,0,0.12), 0 2px 2px rgba(0,0,0,0.24);
+            & > .name {
+              height: 0;
+            }
+            .details-wrap {
+              height: 75px;
+              .faded {
+                transition: opacity 150ms $easeOutSine 100ms;
+                opacity: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#game-header {
+  position: absolute;
+  top: $navHeight;
+  left: 0;
+  display: block;
+
+  // background-image IE fix
+  background-position: center center;
+  background-size: cover;
+
+  background-color: rgba($primaryLightColor, 0.85);
+  width: 100%;
+  height: $gameHeaderHeight;
+  z-index: 1; // for ie polyfill
+  &:after {
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(79,91,98,0.85);
+    z-index: -1;
+  }
+  #game-bgimage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  &.__no-object-fill {
+    picture {
+      display: none;
+    }
+  }
+  .container {
+    margin: 0 5px;
+    @include mq($from: md) {
+      margin: 0 auto;
+    }
+    .header-info {
+      padding: 20px 0;
+      margin-left: 0;
+      color: $primaryTextColor;
+      @include mq(400px) {
+        margin-left: 205px;
+      }
+      @include mq($from: md) {
+        margin-left: 230px;
+      }
+      h1 {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        margin: 0;
+        font-size: 3em;
+        text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.45);
+        @include mq($until: md) {
+          font-size: 1.2em;
+        }
+      }
+      p {
+        overflow: auto;
+        max-height: 200px;
+        margin: 0;
+        font-size: .75em;
+        @include scrollbar(5);
+        @include mq($from: md) {
+          max-height: 160px;
+          font-size: 1em;
+        }
+      }
+      .game-links {
+        padding: 0 0 5px;
+        > a {
+          @extend a;
+          color: #fff;
+          padding-left: 5px;
+          text-decoration: none;
+          font-size: 24px;
+          &:first-child {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+#game-poster {
+  display: none;
+  padding: 10px 0;
+  @include mq(400px) {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  @include mq($from: md) {
+    position: fixed;
+    top: 170px;
+    width: 210px;
+    transform: none;
+  }
+  img {
+    display: block;
+    width: inherit;
+    box-shadow: 0 0 5px 0 #000;
+    background-color: #000;
+    width: 100%;
+    max-height: $gameHeaderHeight - 15;
+    @include mq(400px) {
+      // width: auto; maybe can re-enable this after header is converted into flexbox model
+      max-width: 195px;
+    }
+    @include mq($from: md) {
+      max-height: none;
+    }
+  }
+}
+
+#game-content {
+  .game-release {
+    text-align: center;
+    border-top: 1px solid #ccc;
+    &:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+    // Fix this mess
+    .toggle-label {
+      cursor: pointer;
+      padding: 10px 0;
+      padding-left: 10px;
+      padding-right: 10px;
+      display: block;
+      width: 100%;
+      height: 100%;
+      word-wrap: break-word;
+      .date {
+        font-weight: 300;
+      }
+      &:hover {
+        background: #E9E9E9;
+      }
+    }
+    .toggle-content {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .toggle:checked + .toggle-label,
+    &:target > .toggle + .toggle-label,
+    .toggle-content {
+      background: #E9E9E9;
+    }
+    .toggle:checked ~ .toggle-content {
+      padding-bottom: 10px;
+    }
+    &:target {
+      padding-bottom: 10px;
+      background: #E9E9E9;
+    }
+    &:target > .toggle:checked ~ .toggle-content,
+    &:target > .toggle:checked + .toggle-label {
+      padding-bottom: 0;
+    }
+    @include mq($from: md) {
+      text-align: left;
+      .toggle:checked + .toggle-label,
+      &:target > .toggle + .toggle-label {
+        font-weight: 400;
+      }
+      &:target {
+        padding-bottom: 10px;
+      }
+    }
+  }
+  @include mq($until: md) {
+    margin-left: 0px;
+  }
+  margin-left: 220px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  text-align: center;
+  width: 100%;
+  a:hover {
+    color: $highlightColor;
+  }
+  .btn {
+    flex: 1;
+    width: 30px;
+    padding: 5px 0;
+  }
+  .current {
+    background: #8da6b7;
+    font-weight: 500;
+  }
+  @include mq($from: sm) {
+    margin: 10px;
+    width: auto;
+    .btn {
+      flex: none;
+    }
+  }
+}
+
+.search-settings {
+  > p {
+    float: left;
+    margin: 0;
+  }
+  .righty {
+    display: flex;
+    width: 100%;
+    & > .btn {
+      flex: 1;
+      text-align: center;
+    }
+    .dropdown {
+      z-index: 2;
+      ul {
+        max-width: 200px;
+        max-height: 400px;
+        overflow: auto;
+        left: -102px;
+        background: $secondaryLightColor;
+        top: 14px;
+        box-shadow: none;
+        @include scrollbar(8);
+        li {
+          padding: 0;
+          white-space: normal;
+          label {
+            padding: 5px 10px;
+          }
+        }
+      }
+      @include no-js() {
+        display: none;
+      }
+    }
+    @include mq($from: sm) {
+      display: block;
+      float: right;
+      width: auto;
+      & > .btn {
+        flex: none;
+        text-align: left;
+      }
+    }
+  }
+  @include clearfix;
+}
+
+///////
+// Index only
+///////
+#notice {
+  background: $secondaryColor;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  @include mq($from: sm) {
+    margin: 15px 0;
+  }
+  h1, h2, h3, p {
+    margin: 0;
+  }
+}
+
+///////
+// Login/Register page
+///////
+form#login {
+  width: auto;
+  background: $primaryColor;
+  padding: 10px;
+  &:first-child {
+    margin-bottom: 10px;
+  }
+  h1 {
+    padding: 15px 5px;
+    margin: 0;
+    color: $primaryTextColor;
+  }
+  #regbtn {
+    margin-right: 5px;
+  }
+  @include mq($from: sm) {
+    margin: 0 auto;
+    width: 600px;
+  }
+  @include clearfix;
+}
+
+///////
+// General form elements
+///////
+.form-input {
+  margin-bottom: 10px;
+  width: auto;
+  input:not([type=submit]) {
+    background: #d7d7d7;
+    width: 100%;
+    padding: 16px;
+    padding-left: 1em;
+    border: 0;
+    outline: none;
+    &::placeholder {
+      color: $secondaryTextColor;
+    }
+  }
+  input[type=checkbox] {
+    width: auto;
+  }
+  textarea {
+    width: 100%;
+    padding: 5px 10px;
+  }
+  &.small {
+    input:not([type=submit]) {
+      min-height: 2em;
+      padding: .5em 1em;
+    }
+    input[type=checkbox] {
+      min-height: auto;
+    }
+  }
+  &.dark {
+    input:not([type=submit]) {
+      background: $primaryLightColor;
+    }
+  }
+  &.form-button {
+    background: transparent;
+    [type=submit] {
+    
+    }
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  th {
+    font-weight: 500;
+    border-bottom: 2px solid #d2d2d2;
+  }
+  tr > td,
+  tr > th {
+    border-top: 1px solid #d2d2d2;
+    padding: 8px;
+  }
+}
+
+#sitelog {
+  .fail {
+    background: rgba(255, 0, 0, 0.24);
+  }
+  .success {
+    background: rgba(0, 255, 45, 0.24);
+  }
+  .update {
+    background: rgba(255, 215, 0, 0.24);
+  }
+}
+
+/*
+  Helpers
+*/
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.hidden {
+  display: none !important;
+}
+.text-muted {
+  color: rgba($secondaryTextColor, .65);
+}
+.text-red {
+  color: $colorRed;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+img.img-rounded {
+  border-radius: 4px;
+  box-shadow: -1px 1px 5px rgba(25,25,25,0.35);
+}
+
+// It's like fa-fw but left aligned
+.fa-left {
+  width: 1em;
+  text-align: left;
+}
+.fa-right {
+  width: 1em;
+  text-align: right;
+}
+.fa-norm {
+  font-size: $fa-font-size-base;
+}
+// Make svg same size as fontawesome icon
+.fac-hoster {
+  text-align: center;
+  width: (20em / 16);
+  padding: 0 2px;
+  max-height: 15px;
+}
+.fa-drive-folder {
+  position: relative;
+  .fa-folder:before {
+    font-size: 16px;
+  }
+  .fa-google-drive:before {
+    position: absolute;
+    font-size: 9px;
+    bottom: 5px;
+    left: 5px;
+  }
+}
+
+// Responsive helpers
+@each $key, $bp in $mq-breakpoints {
+  @include mq($from: $key) {
+    .hide-from-#{$key}{
+      display: none;
+    }
+  }
+  @include mq($until: $key) {
+    .hide-until-#{$key}{
+      display: none;
+    }
+  }
+}
+
+
+// Mobile hide/show while scrolling shit
+@include mq($until: sm) {
+  .headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+  }
+  #navigation.headroom--pinned {
+    transform: translateY(0%);
+  }
+  #navigation.headroom--unpinned {
+    transform: translateY(-100%);
+  }
+
+  #navigation-mobile.headroom--pinned,
+  #navigation-mobile.headroom--unpinned.headroom--bottom {
+    transform: translateY(0%);
+  }
+  #navigation-mobile.headroom--unpinned {
+    transform: translateY(100%);
+  }
+}

@@ -1,0 +1,308 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-29 04:53+0800\n"
+"PO-Revision-Date: 2018-01-28 15:14+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: et_EE\n"
+
+#: pages/nfo/index.php:12
+msgid "No NFO Found!"
+msgstr "NFO't ei leitud!"
+
+#: templates/card.twig:34
+msgid "Copy Links"
+msgstr "Kopeeri linke"
+
+#: templates/card.twig:37
+msgid "Magnet"
+msgstr "Magnet"
+
+#: templates/card.twig:40 templates/card.twig:91 templates/game.twig:60
+msgid "Torrent"
+msgstr "Torrent"
+
+#: templates/card.twig:44 templates/main.twig:358
+msgid "Loading..."
+msgstr "Laadimine..."
+
+#: templates/card.twig:50 templates/release_links.twig:13
+msgid "Uploading..."
+msgstr "Üleslaadimine..."
+
+#: templates/card.twig:83
+msgid "Permalink"
+msgstr "Püsilink"
+
+#: templates/card.twig:87 templates/game.twig:56
+msgid "Direct Links"
+msgstr "Otselink"
+
+#: templates/card.twig:115 templates/game.twig:31
+msgid "Go to Steam"
+msgstr "Mine Steam'i"
+
+#: templates/card.twig:118 templates/game.twig:34
+msgid "Go to Site"
+msgstr "Mine saidile"
+
+#: templates/faq.twig:3 templates/faq.twig:7 templates/main.twig:92
+msgid "FAQ"
+msgstr "KKK"
+
+#: templates/faq.twig:8
+msgid "Why make another \"scene games\" site when there are countless others?"
+msgstr "Miks teha uus \"scene mängude\" leht, kui on olemas palju teisi?"
+
+#: templates/faq.twig:9
+msgid ""
+"All the other sites are littered with ads and pop-ups. They are also slow at "
+"uploading and profit from scene releases!"
+msgstr ""
+"Kõik teised on reostatud reklaamide ja hüpikakendega. Need on ka aeglased "
+"üleslaadimisel ja teenivad raha scene'i väljaannetelt!"
+
+#: templates/faq.twig:11
+msgid ""
+"There is an incorrect game associated with a release. Why does this happen?"
+msgstr "Siin on üks mäng seostatud vale väljaandega. Miks see juhtub?"
+
+#: templates/faq.twig:12
+msgid ""
+"Sometimes a release gets matched with the wrong game. We usually notice this "
+"and fix it."
+msgstr ""
+"Mõnikord mõni väljaanne pannakse paari vale mänguga. Me tavaliselt näeme "
+"seda ja parandame selle."
+
+#: templates/faq.twig:14
+msgid "What torrent client should I use?"
+msgstr "Mis torrenti klienti võiksin ma kasutada?"
+
+#: templates/faq.twig:15
+msgid ""
+"Torrent users should be using %deluge% or %qbittorent% (anything besides "
+"μTorrent please!)."
+msgstr ""
+"Torrenti kasutajad peaksid kasutama %deluge%'t või %qbittorent% (ükskõik "
+"mida peale μTorrent palun!)."
+
+#: templates/faq.twig:17
+msgid ""
+"What if the direct links go down or there are no seeders for the release I "
+"want?"
+msgstr ""
+"Mis siis, kui otselingid enam ei toimi või pole seemned sellele väljaandele "
+"mida tahan?"
+
+#: templates/faq.twig:18
+msgid ""
+"We will be implementing a way for releases to be re-uploaded in the future. "
+"We DO NOT re-seed torrents, so please consider seeding back what you leech "
+"(maybe get a seedbox and help out)."
+msgstr ""
+"Me plaanime võtta kasutusele viisi väljaannete uuesti üleslaadimiseks "
+"tulevikus. Me ei seed'i torrenteid uuesti, nii et palun seed'i tagasi mida "
+"sa laed. (võibolla osta seemnekast ja aita)"
+
+#: templates/faq.twig:20
+msgid ""
+"How do I mount an ISO and install the game I downloaded and how do I crack "
+"it?!"
+msgstr ""
+"Kuidas ma avan ISO ja installin mängu mille ma tõmbasin ning kuidas crackin?!"
+
+#: templates/faq.twig:21
+msgid ""
+"You must be a virgin at this ;) There are countless tutorials if you do a "
+"Google search. Basically, if you know how to copy and paste things you're "
+"already a pro."
+msgstr ""
+"Sa oled selles vist uus ;) Leiad palju õpetusi kui teed Google'i otsingu. "
+"Põhimõtteliselt, kui sa oskad kopeerida ja kleepida asju oled sa juba pro."
+
+#: templates/faq.twig:23
+msgid "Help the game I downloaded doesn't work!"
+msgstr "Aita, mäng mille tõmbasin ei tööta!"
+
+#: templates/faq.twig:24
+msgid ""
+"First, please be sure you are cracking the game after you install it (and "
+"that your anti-virus isn't deleting the crack!). \n"
+"  Second, some releases may not work as the scene does make mistakes. If so, "
+"a \"PROPER\" release will be usually be posted."
+msgstr ""
+"Kõigepealt, tee kindlaks et sa crackisid mängu pärast installimist (ning et "
+"su antiviirus ei kustuta cracki). \n"
+"Teiseks, mõned väljaanded ei pruugi toimida, sest scene teeb ka vigu. Kui on "
+"nii, siis tavaliselt postitatakse \"PROPER\" release, mis peaks toimima."
+
+#: templates/faq.twig:27
+msgid "I love this site! How can I donate?"
+msgstr "Ma armastan seda saiti! Kuidas saan ma annetada?"
+
+#: templates/faq.twig:28
+msgid ""
+"We're not going to profit off of scene releases. You can donate to us by "
+"seeding the torrents you download or by telling others about this site (on "
+"forums, Reddit, your friends, etc)."
+msgstr ""
+"Me ei hakka raha teenima scene väljaannete pealt. Sa saad annetada meile, "
+"kui seedid torrenteid või räägid teistele selle lehe kohta (foorumites, "
+"Redditis, sõpradele, jne)."
+
+#: templates/game.twig:37
+msgid "Edit Game"
+msgstr "Muuda mängu"
+
+#: templates/game.twig:53 templates/game.twig:54
+msgid "NFO"
+msgstr "NFO"
+
+#: templates/genres.twig:3 templates/search.twig:33
+msgid "Genres"
+msgstr "Žanrid"
+
+#: templates/index.twig:13
+msgid "Staff Picks"
+msgstr "Personali Valikud"
+
+#: templates/index.twig:20
+msgid "New Releases"
+msgstr "Uued Väljaanded"
+
+#: templates/main.twig:70 templates/main.twig:131
+msgid "Home"
+msgstr "Kodu"
+
+#: templates/main.twig:73
+msgid "Search"
+msgstr "Otsi"
+
+#: templates/main.twig:79
+msgid "Explore"
+msgstr "Avasta"
+
+#: templates/main.twig:83 templates/search.twig:17
+msgid "All Games"
+msgstr "Kõik Mängud"
+
+#: templates/main.twig:84
+msgid "P2P (Soon™?)"
+msgstr "P2P (Varsti™?)"
+
+#: templates/main.twig:93
+msgid "RSS Feeds"
+msgstr "RSS Feedid"
+
+#: templates/main.twig:98
+msgid "RSS Feed for Torrent clients"
+msgstr "RSS Feed Torrenti klientidele"
+
+#: templates/main.twig:98
+msgid "Torrents"
+msgstr "Torrentid"
+
+#: templates/main.twig:103 templates/main.twig:140 templates/register.twig:25
+msgid "Login"
+msgstr "Logi sisse"
+
+#: templates/main.twig:107 templates/main.twig:147 templates/register.twig:3
+msgid "Admin"
+msgstr "Admin"
+
+#: templates/main.twig:109
+msgid "Logout"
+msgstr "Logi välja"
+
+#: templates/main.twig:112
+msgid "Change Language"
+msgstr "Muuda Keelt"
+
+#: templates/main.twig:118
+msgid "English"
+msgstr "Inglise"
+
+#: templates/main.twig:119
+msgid "German"
+msgstr "Saksa"
+
+#: templates/main.twig:120
+msgid "Russian"
+msgstr "Vene"
+
+#: templates/main.twig:121
+msgid "Spanish"
+msgstr "Hispaania"
+
+#: templates/main.twig:122
+msgid "Hodor"
+msgstr "Hodor"
+
+#: templates/main.twig:135
+msgid "Browse"
+msgstr "Sirvi"
+
+#: templates/page_restricted.twig:3
+msgid "Access Denied"
+msgstr "Ligipääs Keelatud"
+
+#: templates/page_restricted.twig:7
+msgid "You cannot view this page."
+msgstr "Sa ei saa seda lehte kuvada."
+
+#: templates/register.twig:16
+msgid "Username"
+msgstr "Kasutajanimi"
+
+#: templates/register.twig:19
+msgid "Password"
+msgstr "Parool"
+
+#: templates/register.twig:22
+msgid "Registration Code"
+msgstr "Registreerimiskood"
+
+#: templates/register.twig:26
+msgid "Register"
+msgstr "Registreeri"
+
+#: templates/release_links.twig:9
+msgid "Copy Links to Clipboard"
+msgstr "Kopeeri lingid lõikepuhvrisse"
+
+#: templates/release_links.twig:10
+msgid "Open all Links (Allow Popups)"
+msgstr "Ava kõik lingid (Luba Hüpikaknad)"
+
+#: templates/search.twig:14
+msgid "Releases by %group%"
+msgstr "Väljaanded %group%'i poolt"
+
+#: templates/search.twig:14
+msgid "Search Results"
+msgstr "Otsingu tulemused"
+
+#: templates/search.twig:23
+msgid "%totalresults% games found for \"%term%\""
+msgstr "%totalresults% mängu leitud otsingusõnaga \"%term%\""
+
+#: templates/search.twig:28
+msgid "Relevance"
+msgstr "Relevantsus"
+
+#: templates/search.twig:30
+msgid "Title"
+msgstr "Tiitel"
+
+#: templates/search.twig:31
+msgid "Date"
+msgstr "Kuupäev"

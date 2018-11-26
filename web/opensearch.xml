@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>SceneGames Search</ShortName>
+  <Description>Search for Scene games on Good Old Downloads</Description>
+  <Url type="text/html" method="get" template="https://scenegames.goodolddownloads.com/search/{searchTerms}"/>
+  <Image width="16" height="16">https://scenegames.goodolddownloads.com/static/img/favicon-16.png</Image>
+  <InputEncoding>UTF-8</InputEncoding>
+  <SearchForm>https://scenegames.goodolddownloads.com/</SearchForm>
+</OpenSearchDescription>

@@ -1,0 +1,32 @@
+button,
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 100%;
+    padding: 5px 10px;
+    color: $secondaryTextColor;
+    background-color: $secondaryLightColor;
+    border: 1px solid #999;
+    border: transparent;
+    text-decoration: none;
+    text-transform: uppercase;
+    min-height: 30px;
+    &:hover {
+        outline: 0;
+        color: $highlightColor;
+    }
+    &:active {
+        box-shadow: 0 0 0 1px rgba(0,0,0,.15) inset, 0 0 3px rgba(0,0,0,.5) inset;
+    }
+    &.disabled, &[disabled] {
+        &:hover {
+            background-image: none;
+        }
+        &:active {
+            box-shadow: none;
+        }
+        opacity: 0.75;
+        cursor: not-allowed;
+    }
+}

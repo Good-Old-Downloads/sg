@@ -1,0 +1,90 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends 'main.twig' %}
+
+{% block title %}{{ game.name }}{% endblock title %}
+
+{% block meta %}
+<meta property="twitter:card" content="summary_large_image">
+{% if game.description is not null %}
+<meta property="description" content="{{ game.description|length > 500 ? game.description|slice(0, 500) ~ '...' : game.description }}">
+<meta property="og:description" content="{{ game.description|length > 500 ? game.description|slice(0, 500) ~ '...' : game.description }}">
+{% endif %}
+<meta property="og:image" content="{{ base_url() }}{{ cover }}">
+
+{% endblock meta %}
+
+{% block content %}
+<div class="container game nomargin">
+  <div id="game-header" class="__object-fit-poly" data-iefix="{{ bg1080p }}"> {# Grab this url and add it to background-image if on IE #}
+    <picture>
+        <source srcset="{{ bg720p }}" media="(max-width: 800px)">
+        <source srcset="{{ bg1080p }}">
+        <img id="game-bgimage" src="{{ bg1080p }}">
+    </picture>
+    <div class="container">
+        <div id="game-poster">
+            <img src="{{ cover }}">
+        </div>
+        <div class="header-info">
+            <h1>{{ game.name }}</h1>
+            <div class="game-links">
+              {% if game.steam_id %}
+                <a href="https://store.steampowered.com/app/{{ game.steam_id }}/" title="{{'Go to Steam'|trans}}" class="fab fa-steam" target="_blank"></a>
+              {% endif %}
+              {% if game.site %}
+                <a href="{{ game.site }}" title="{{'Go to Site'|trans}}" class="fas fa-globe" target="_blank"></a>
+              {% endif %}
+              {% if user and user.class == 'ADMIN' %}
+                <a class="fas fa-fw fa-pen-square edit-btn" title="{{'Edit Game'|trans}}" data-game-id="{{ game.id }}"></a>
+              {% endif %}
+            </div>
+            <p>{{ game.description|nl2br }}</p>
+        </div>
+    </div>
+  </div>
+  <div id="game-content">
+    {% import "release_links.twig" as linksbox %}
+    {% for release in releases %}
+        {# Modal for release links #}
+        {{ linksbox.input(release, game, loop) }}
+        <div class="game-release" id="{{ release.name }}">
+            <input id="toggle-{{ release.id }}" class="toggle" type="checkbox" {% if releases|length == 1 %}checked{% endif %}>
+            <label for="toggle-{{ release.id }}" class="toggle-label">{{ release.name }} {% if release.size != null %}<span class="date text-muted" title="{{ release.size|number_format }} B">{{ release.size|convertBytes }} | </span>{% endif %} <span class="date text-muted hide-until-md" data-moment="epoch" data-format="fromnow" data-time="{{ release.date }}"></span></label>
+            <div class="toggle-content">
+                <button class="hide-until-md no-js-hide" data-nfo="{{ release.name }}">{{'NFO'|trans}}</button>
+                <button class="hide-from-md" data-nfo-mobile="{{ release.name }}">{{'NFO'|trans}}</button>
+                {% if release.links %}
+                    <label class="btn links-modal-trigger modal-calc-height" data-id="{{ release.id }}" for="links-{{ game.slug }}-{{ loop.index }}">{{'Direct Links'|trans}}</label>
+                {% endif %}
+                {% spaceless %} {# To connect them #}
+                    {% if release.magnet %}
+                      <a href="{{ release.magnet }}" class="btn">{{'Torrent'|trans}} <i class="fas fa-fw fa-sm fa-magnet"></i></a>
+                    {% endif %}
+                    {% if release.torrent %}
+                      <a href="{{ release.torrent }}" class="btn"><i class="fas fa-sm fa-download"></i></a>
+                    {% endif %}
+                {% endspaceless %}
+            </div>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+{% endblock scripts %}

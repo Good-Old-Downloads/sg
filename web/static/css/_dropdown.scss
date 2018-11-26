@@ -1,0 +1,101 @@
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-size: 1em;
+  > label > input[type=checkbox] {
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    &:checked {
+      position: fixed;
+      z-index: 0;
+      top: 0px;
+      left: 0px;
+      right: 0px;
+      bottom: 0px;
+    }
+    &:checked {
+      color: inherit;
+      & + ul {
+        display: block;
+      }
+    }
+  }
+  ul {
+    display: none;
+    position: absolute;
+    background: $primaryLightColor;
+    color: $secondaryTextColor;
+    top: 18px;
+    left: 0px;
+    list-style: none;
+    padding: 4px 0;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);
+    li {
+      display: block;
+      cursor: pointer;
+      padding: 2px 0;
+      white-space: nowrap;
+      min-width: 100px;
+      &:hover {
+        background: rgba($primaryColor,0.35);
+      }
+      a, button {
+        @extend a;
+        text-decoration: none;
+        text-transform: none;
+        width: 100%;
+        min-height: 20px; // if you use a <button>
+        padding: 0 10px;
+        display: block;
+        color: inherit;
+        text-align: left;
+        &:active {
+          box-shadow: none;
+        }
+      }
+      // Checkbox inside li
+      label {
+        display: block;
+        cursor: pointer;
+        width: 100%;
+        input[type=checkbox] {
+          display: none;
+          & + i:before {
+            content: fa-content($fa-var-square);
+          }
+          &:checked {
+            & + i:before {
+              content: fa-content($fa-var-check-square);
+            }
+          }
+        }
+      }
+      &:hover {
+        color: $highlightColor;
+      }
+    }
+    .divider {
+      height: 1px;
+      margin: 5px 0;
+      overflow: hidden;
+      background-color: #000;
+      font-size: 1px;
+      padding: 0;
+      &:hover {
+        background-color: #000;
+      }
+    }
+  }
+  &:hover {
+    > button {
+      color: $highlightColor;
+    }
+  }
+}

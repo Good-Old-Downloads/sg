@@ -1,0 +1,17 @@
+.toggle {
+  display: none;
+  &:checked ~ .toggle-content,
+  *:target > & ~ .toggle-content {
+    height: auto;
+  }
+}
+*:target > .toggle:checked ~ .toggle-content {
+  height: 0;
+}
+/* label.toggle-label {
+  
+} */
+.toggle-content {
+  height: 0;
+  overflow: hidden;
+}

@@ -1,0 +1,56 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% extends 'main.twig' %}
+
+{% block title %}{{ 'Google Drive Limit Bypass Tutorial'|trans }}{% endblock title %}
+
+{% block content %}
+<div class="container nomargin">
+    <h1>{{ 'Google Drive Limit Bypass Tutorial (Out of date)'|trans }}</h1>
+    <p>This tutorial will show you how to bypass the Google Drive download limit for files on Scene Games. This does require a Google account. You can get one for free here: <a href="https://accounts.google.com/SignUp">https://accounts.google.com/SignUp</a></p>
+    <p>
+        <span class="text-red">IMPORTANT UPDATE: It seems Google has now implemented a user quota (or reduced) for the "Make a copy" option this tutorial uses to bypass file download quota. If your trash is empty and you recieve an error when making a copy of a file, you must create a new Google account and continue using the bypass or wait until your "Make a copy" quota resets (unknown amount of time until it resets -- it does seem to reset every day from our testing).</span>
+    </p>
+  	<p>
+        <span class="text-red">Note 1: This bypass will NOT work on files that are above 15GB! It will only work for files 15GB and under!</span>
+    </p>
+    <p>
+  	    <span class="text-red">Note 2: These steps are also a little different from the tutorial you may have used on https://goggames.goodolddownloads.com.</span>
+    </p>
+    <h3>This is the error we want to bypass:</h3>
+    <p>
+        <img class="img-rounded" src="/static/img/drive_tutorial/error.png">
+    </p>
+
+    <h3>Steps to bypass:</h3>
+    <ol>
+        <li><p>Click the "Add to My Drive" button which can be found in the top right hand corner on the "Whoops! There was a problem with the preview." page in your browser.<br><img class="img-rounded" src="/static/img/drive_tutorial/whoops.png"><br><img class="img-rounded" src="/static/img/drive_tutorial/addtomydrive.png"></p></li>
+        <li><p>The file will be added to your drive. Next click the "X".<br><img class="img-rounded" src="/static/img/drive_tutorial/x.png"></p></li>
+        <li><p>Now click the folder with the Google Drive logo which can also be found in the top right hand corner of the page (same location as on Step 1).</p></li>
+        <li><p>Then click "My Drive" (make sure you allow pop-ups for drive.google.com)<br><img class="img-rounded" src="/static/img/drive_tutorial/34.png"></p></li>
+        <li><p>You will be taken to your Google Drive home page where can now find the file(s) in your Google Drive. Next right click on the file(s) and select "Make a Copy".<br><img class="img-rounded" src="/static/img/drive_tutorial/makedatcopy.png"></p></li>
+        <li><p>A copy of the file(s) will be created which you can then right click and select "Download".<br><img class="img-rounded" src="/static/img/drive_tutorial/6.png"></p></li>
+        <li><p>After your download finishes, you should remove the copies from your Google Drive to free up space in the event you need to do this bypass again (or need to copy and download additional files for larger games).
+            <br>You can do this by selecting the copies you want to delete, then right click and select "Remove" at the bottom of the drop down menu.<br><img class="img-rounded" src="/static/img/drive_tutorial/remove.png"></p></li>
+        <li><p>Finally delete the copies from your trash. Click "Trash" found on the left hand side then click the "Trash" at the top and select "Empty Trash".<br><img class="img-rounded" src="/static/img/drive_tutorial/letrash.png"></p></li>
+    </ol>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}

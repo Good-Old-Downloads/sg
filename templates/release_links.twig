@@ -1,0 +1,73 @@
+{#
+    SceneGames
+    Copyright (C) 2018  GoodOldDownloads
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#}
+{% macro input(release, game, loop) %}
+  <input class="modal-state" id="links-{{ game.slug }}-{{ loop.index }}" type="checkbox">
+  <div class="modal">
+    <label class="modal__bg" for="links-{{ game.slug }}-{{ loop.index }}"></label>
+    <div class="modal__inner">
+      <label class="modal__close" for="links-{{ game.slug }}-{{ loop.index }}"></label>
+      <h4>{{ release.name }}</h4>
+      <div class="links-loading">
+        <i class="fas fa-5x fa-spinner fa-spin"></i>
+      </div>
+      <span class="links-block"></span>
+    </div>
+  </div>
+{% endmacro %}
+
+{% block linksblock %}
+  {% if release.can_vote == 1 %}
+    <a href="#" class="__vote-modal-trigger text-red" data-id="{{ release.id }}">{{'Links down? Click here to vote for a re-upload!'|trans}}</a>
+  {% endif %}
+  {% if release.old_view %}
+  <ul class="release-links">
+    <button class="fa-norm no-js-hide" title="{{'Copy Links to Clipboard'|trans}}" data-clip-links-legacy><i class="fas fa-copy"></i></button>
+    <button class="fa-norm no-js-hide" title="{{'Open all Links (Allow Popups)'|trans}}" data-open-batch><i class="fas fa-external-link-square-alt"></i></button>
+    {% for link in release.links %}
+      {% if link.status == 'UPLOADING' %}
+        <li>{{'Uploading...'|trans}}</li>
+      {% else %}
+        <li><a href="{{ link.link }}" target="_blank">{{ link.file_name }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+  {% else %}
+  <ul class="release-links">
+    {% if 'gdrive' in release.links|keys %}<a class="tut-link" href="/google-drive-bypass-tutorial">{{'Bypass Google Drive Quota Tutorial.'|trans}}</a>{% endif %}
+    {% for host in release.links %}
+        {% spaceless %}
+        <li>
+          <label class="host" for="{{ release.name|lower|escape('html_attr') }}_{{ loop.index }}" title="{{ host.name }}">
+            {{ host.icon|raw }}
+            <span> {{ host.name }} </span>
+          </label>
+          <a class="fas fa-fw fa-copy no-js-hide" title="{{'Copy Links to Clipboard'|trans}}" data-clip-links></a><a class="fas fa-fw fa-external-link-square-alt no-js-hide" title="{{'Open all Links (Allow Popups)'|trans}}" data-open-batch="new"></a>
+          {% endspaceless %}
+          <input class="host-expand-check" id="{{ release.name|lower|escape('html_attr') }}_{{ loop.index }}" type="checkbox">
+          <div class="hosts-group expand">
+            <ol>
+            {% for link in host.links %}
+              <li><a class="item" title="{{ link.link }}" href="{{ link.link }}" target="_blank">{{ link.file_name }}</a></li>
+            {% endfor %}
+            </ol>
+          </div>
+        </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endblock linksblock %}

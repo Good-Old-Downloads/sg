@@ -1,0 +1,316 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: SceneGames\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-12-29 04:53+0800\n"
+"PO-Revision-Date: 2017-12-29 04:53+0800\n"
+"Last-Translator: Haoose\n"
+"Language-Team: \n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Loco-Source-Locale: en_AR\n"
+"X-Generator: Poedit 2.0.5\n"
+"X-Poedit-Basepath: ../../..\n"
+"X-Poedit-Flags-xgettext: --add-comments\n"
+"X-Loco-Parser: loco_parse_po\n"
+"X-Poedit-SearchPath-0: templates\n"
+"X-Poedit-SearchPath-1: pages\n"
+
+#: pages/nfo/index.php:12
+msgid "No NFO Found!"
+msgstr "NFO-файл отсутствует!"
+
+#: templates/card.twig:34
+msgid "Copy Links"
+msgstr "Копировать ссылки"
+
+#: templates/card.twig:37
+msgid "Magnet"
+msgstr "Магнит"
+
+#: templates/card.twig:40 templates/card.twig:91 templates/game.twig:60
+msgid "Torrent"
+msgstr "Торрент"
+
+#: templates/card.twig:44 templates/main.twig:358
+msgid "Loading..."
+msgstr "Загрузка..."
+
+#: templates/card.twig:50 templates/release_links.twig:13
+msgid "Uploading..."
+msgstr "Файлы загружаются..."
+
+#: templates/card.twig:83
+msgid "Permalink"
+msgstr "Постоянная ссылка"
+
+#: templates/card.twig:87 templates/game.twig:56
+msgid "Direct Links"
+msgstr "Прямые ссылки"
+
+#: templates/card.twig:115 templates/game.twig:31
+msgid "Go to Steam"
+msgstr "Открыть страницу игры в Steam"
+
+#: templates/card.twig:118 templates/game.twig:34
+msgid "Go to Site"
+msgstr "Перейти на сайт игры"
+
+#: templates/faq.twig:3 templates/faq.twig:7 templates/main.twig:92
+msgid "FAQ"
+msgstr "ЧАВО"
+
+#: templates/faq.twig:8
+msgid "Why make another \"scene games\" site when there are countless others?"
+msgstr ""
+"Зачем делать еще один сайт с \"играми со сцены\", когда есть бесчисленное "
+"множество других?"
+
+#: templates/faq.twig:9
+msgid ""
+"All the other sites are littered with ads and pop-ups. They are also slow at "
+"uploading and profit from scene releases!"
+msgstr ""
+"Все остальные сайты наполнены объявлениями и всплывающими окнами. Игры на "
+"них медленно заливают и получают прибыль за это!"
+
+#: templates/faq.twig:11
+msgid ""
+"There is an incorrect game associated with a release. Why does this happen?"
+msgstr ""
+"Я нашел некорректное сопоставление названия релиза и игры. Почему так "
+"произошло?"
+
+#: templates/faq.twig:12
+msgid ""
+"Sometimes a release gets matched with the wrong game. We usually notice this "
+"and fix it."
+msgstr ""
+"Иногда релиз совпадает с неправильной игрой. Обычно мы видим это и исправляем"
+
+#: templates/faq.twig:14
+msgid "What torrent client should I use?"
+msgstr "Какой торрент-клиент мне нужно использовать?"
+
+#: templates/faq.twig:15
+msgid ""
+"Torrent users should be using %deluge% or %qbittorent% (anything besides "
+"μTorrent please!)."
+msgstr ""
+"Пользователи Torrent должны использовать %deluge% или %qbittorent% (ничего, "
+"кроме ОјTorrent, пожалуйста!)."
+
+#: templates/faq.twig:17
+msgid ""
+"What if the direct links go down or there are no seeders for the release I "
+"want?"
+msgstr ""
+"Что делать, если прямые ссылки удалены или нет сидов для релиза, который я "
+"хочу скачать?"
+
+#: templates/faq.twig:18
+msgid ""
+"We will be implementing a way for releases to be re-uploaded in the future. "
+"We DO NOT re-seed torrents, so please consider seeding back what you leech "
+"(maybe get a seedbox and help out)."
+msgstr ""
+"Мы внедрим способ для повторной загрузки релизов в будущем. Мы НЕ "
+"перераздаем торренты, поэтому, пожалуйста, подумайте о том, чтобы раздавать "
+"то что вы скачали (возможно, у вас есть сидбокс)."
+
+#: templates/faq.twig:20
+msgid ""
+"How do I mount an ISO and install the game I downloaded and how do I crack "
+"it?!"
+msgstr "Как смонтировать ISO, установить загруженную игру и как ее взломать?"
+
+#: templates/faq.twig:21
+msgid ""
+"You must be a virgin at this ;) There are countless tutorials if you do a "
+"Google search. Basically, if you know how to copy and paste things you're "
+"already a pro."
+msgstr ""
+"Вы должно быть нуб в этом ;) Есть множество обучающих примеров, если вы "
+"поищите их в Google. В принципе, если вы знаете, как копировать и вставлять "
+"что-нибудь, вы уже профессионал."
+
+#: templates/faq.twig:23
+msgid "Help the game I downloaded doesn't work!"
+msgstr "Помогите! Игра, которую я скачал - не работает!"
+
+#: templates/faq.twig:24
+msgid ""
+"First, please be sure you are cracking the game after you install it (and "
+"that your anti-virus isn't deleting the crack!). \n"
+"  Second, some releases may not work as the scene does make mistakes. If so, "
+"a \"PROPER\" release will be usually be posted."
+msgstr ""
+"Во-первых, убедитесь, что вы взломали игру (установили кряк) после ее "
+"установки (и ваш антивирус не удалил файлы кряка!). \n"
+" Во-вторых, некоторые версии могут не работать, поскольку на сцене случаются "
+"ошибки. Если это так, обычно выпускают \"PROPER\" релиз."
+
+#: templates/faq.twig:27
+msgid "I love this site! How can I donate?"
+msgstr "Мне нравится этот сайт! Чем я могу вам помочь?"
+
+#: templates/faq.twig:28
+msgid ""
+"We're not going to profit off of scene releases. You can donate to us by "
+"seeding the torrents you download or by telling others about this site (on "
+"forums, Reddit, your friends, etc)."
+msgstr ""
+"Мы не собираемся зарабатывать на релизах сцены. Вы можете помочь нам "
+"сидированием торрентов, которые вы скачали или рассказывая другим об этом "
+"сайте (на форумах, Reddit, ВКонтакте, вашим друзьям, и т.д.)"
+
+#: templates/game.twig:37
+msgid "Edit Game"
+msgstr "Редактировать игру"
+
+#: templates/game.twig:53 templates/game.twig:54
+msgid "NFO"
+msgstr "NFO"
+
+#: templates/genres.twig:3 templates/search.twig:33
+msgid "Genres"
+msgstr "Жанры"
+
+#: templates/index.twig:13
+msgid "Staff Picks"
+msgstr "Выбор администрации"
+
+#: templates/index.twig:20
+msgid "New Releases"
+msgstr "Новые релизы"
+
+#: templates/main.twig:70 templates/main.twig:131
+msgid "Home"
+msgstr "Домой"
+
+#: templates/main.twig:73
+msgid "Search"
+msgstr "Поиск"
+
+#: templates/main.twig:79
+msgid "Explore"
+msgstr "Фильтр"
+
+#: templates/main.twig:83 templates/search.twig:17
+msgid "All Games"
+msgstr "Все игры"
+
+#: templates/main.twig:84
+msgid "P2P (Soon™?)"
+msgstr "P2P (Скоро?)"
+
+#: templates/main.twig:93
+msgid "RSS Feeds"
+msgstr "RSS-каналы"
+
+#: templates/main.twig:98
+msgid "RSS Feed for Torrent clients"
+msgstr "RSS-канал для торрент-клиентов"
+
+#: templates/main.twig:98
+msgid "Torrents"
+msgstr "Торренты"
+
+#: templates/main.twig:103 templates/main.twig:140 templates/register.twig:25
+msgid "Login"
+msgstr "Войти"
+
+#: templates/main.twig:107 templates/main.twig:147 templates/register.twig:3
+msgid "Admin"
+msgstr "Админ"
+
+#: templates/main.twig:109
+msgid "Logout"
+msgstr "Выйти"
+
+#: templates/main.twig:112
+msgid "Change Language"
+msgstr "Изменить язык"
+
+#: templates/main.twig:118
+msgid "English"
+msgstr "Английский"
+
+#: templates/main.twig:119
+msgid "German"
+msgstr "Немецкий"
+
+#: templates/main.twig:120
+msgid "Russian"
+msgstr "Русский"
+
+#: templates/main.twig:121
+msgid "Spanish"
+msgstr "Испанский"
+
+#: templates/main.twig:122
+msgid "Hodor"
+msgstr "Ходор"
+
+#: templates/main.twig:135
+msgid "Browse"
+msgstr "Обзор"
+
+#: templates/page_restricted.twig:3
+msgid "Access Denied"
+msgstr "Доступ запрещен"
+
+#: templates/page_restricted.twig:7
+msgid "You cannot view this page."
+msgstr "Вы не можете увидеть эту страницу."
+
+#: templates/register.twig:16
+msgid "Username"
+msgstr "Имя пользователя"
+
+#: templates/register.twig:19
+msgid "Password"
+msgstr "Пароль"
+
+#: templates/register.twig:22
+msgid "Registration Code"
+msgstr "Регистрационный код"
+
+#: templates/register.twig:26
+msgid "Register"
+msgstr "Регистрация"
+
+#: templates/release_links.twig:9
+msgid "Copy Links to Clipboard"
+msgstr "Скопировать ссылки в буфер обмена"
+
+#: templates/release_links.twig:10
+msgid "Open all Links (Allow Popups)"
+msgstr "Открыть все ссылки (Разрешите всплывающие окна)"
+
+#: templates/search.twig:14
+msgid "Releases by %group%"
+msgstr "Релизы от %group%"
+
+#: templates/search.twig:14
+msgid "Search Results"
+msgstr "Результаты поиска"
+
+#: templates/search.twig:23
+msgid "%totalresults% games found for \"%term%\""
+msgstr "%totalresults% игр найдено для \"%term%\""
+
+#: templates/search.twig:28
+msgid "Relevance"
+msgstr "Актуальность"
+
+#: templates/search.twig:30
+msgid "Title"
+msgstr "Название"
+
+#: templates/search.twig:31
+msgid "Date"
+msgstr "Дата"
