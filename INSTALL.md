@@ -28,7 +28,7 @@ That said, it is possible to run SceneGames on a Windows server.
 ##### Getting the sauce:
 
 ```bash
-git clone https://wherever.the/code/ends-up-on.git
+git clone https://github.com/Good-Old-Downloads/sg.git
 ```
 
 ##### Installing the PHP requirements:
